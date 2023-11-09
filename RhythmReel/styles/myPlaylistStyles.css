@@ -1,0 +1,33 @@
+.filter-year, .filter-genre,
+.myPlaylist-result{
+  text-align: center;
+}
+.filter-title, .filter-genre{
+  font-size: 20px;
+  font-weight: bold;
+  color: #44a6cd;
+}
+.filter-button {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #87CEEB;
+  padding: 10px;
+  border-radius: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.year-button:hover , .filter-button:hover{
+  background-color: #87CEEB;
+  color: #fff;
+}
+
+.filter-result-button{
+  background-color: rgb(94, 94, 94);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  
+}
