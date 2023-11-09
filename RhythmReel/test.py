@@ -10,4 +10,4 @@ if __name__ == "__main__":
     if len(user_name) > 5:
         print("That's a long name!")
     else:
-        print("Nice to meet you!, hello")
+        print("Nice to meet you")
