@@ -11,33 +11,36 @@
 
 <!-- 필터 버튼을 나타낼 영역 -->
 <div id="filter-year" class="filter-year">
-  <p class="filter-title">연도</p>
-  <button class="filter-button">2017</button>
-  <button class="filter-button">2018</button>
-  <button class="filter-button">2019</button>
-  <button class="filter-button">2020</button>
-  <button class="filter-button">2021</button>
-  <button class="filter-button">2022</button>
-  <button class="filter-button">2023</button>
+    <p class="filter-title">연도</p>
+    <button class="filter-button">2017</button>
+    <button class="filter-button">2018</button>
+    <button class="filter-button">2019</button>
+    <button class="filter-button">2020</button>
+    <button class="filter-button">2021</button>
+    <button class="filter-button">2022</button>
+    <button class="filter-button">2023</button>
 </div> <br/>
 <!-- 장르 버튼을 나타낼 영역 -->
 <div id="filter-genre" class="filter-genre">
-  <p class="filter-title">장르</p>
-  <button class="filter-button">케이팝</button>
-  <button class="filter-button">발라드</button>
-  <button class="filter-button">OST</button>
-  <button class="filter-button">POP</button>
-  <button class="filter-button">힙합</button>
-  <button class="filter-button">댄스</button>
+    <p class="filter-title">장르</p>
+    <button class="filter-button">케이팝</button>
+    <button class="filter-button">발라드</button>
+    <button class="filter-button">OST</button>
+    <button class="filter-button">POP</button>
+    <button class="filter-button">힙합</button>
+    <button class="filter-button">댄스</button>
 </div>
 <!-- 나에게 맞는 플레이리스트에 대한 내용 추가 -->
 <div class="myPlaylist-result">
-  <button class="filter-result-button" onclick="displaySongInfo()">탐색</button>
-  <div id="songInfo"></div>
+    <button class="filter-result-button" onclick="displaySongInfo()">탐색</button>
+    <div id="songInfo"></div>
 </div>
 
 <!-- 영상을 출력할 iframe 추가 -->
-<iframe id="videoIframe" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe id="videoIframe" width="560" height="315" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; 
+        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen></iframe>
 
 <script src="scripts/myPlaylist.js"></script>
 </body>

@@ -7,7 +7,7 @@ function showMyPlaylist() {
             const mainContent = document.getElementById('mainContent');
             mainContent.innerHTML = html;
             initializeMyPlaylist();
-        });  
+        });
     setActiveMenu('myPlaylist');
 }
 
@@ -18,13 +18,13 @@ function initializeMyPlaylist() {
 
     yearButtons.forEach(function (button) {
         button.addEventListener("click", function () {
-            button.classList.add("selected");
+            toggleButton(button);
         });
     });
 
     genreButtons.forEach(function (button) {
         button.addEventListener("click", function () {
-            button.classList.add("selected");
+            toggleButton(button);
         });
     });
 
@@ -34,9 +34,29 @@ function initializeMyPlaylist() {
     });
 }
 
+function toggleButton(button) {
+    // 이미 선택된 버튼인 경우 선택 취소
+    if (button.classList.contains("selected")) {
+        button.classList.remove("selected");
+    } else {
+        // 다른 버튼들의 선택 상태 해제
+        var buttons = button.parentElement.getElementsByClassName("filter-button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("selected");
+        }
+
+        // 선택한 버튼 표시
+        button.classList.add("selected");
+    }
+}
+
 function displaySongInfo() {
     var videoIframe = document.getElementById("videoIframe");
     var songInfoDiv = document.getElementById("songInfo");
+
+    // 이전에 표시된 정보 초기화
+    videoIframe.src = "";
+    songInfoDiv.innerHTML = "";
 
     // 선택한 연도와 장르에 대한 처리 추가
     var selectedYear = getSelectedButtonValue(document.querySelectorAll("#filter-year .filter-button"));
@@ -44,30 +64,37 @@ function displaySongInfo() {
 
     // 연도와 장르에 따라 노래 정보를 표시하는 로직 추가
     if (selectedYear && selectedGenre) {
-        switch (selectedYear) {
-            case "2017":
-                switch (selectedGenre) {
-                    case "케이팝":
-                        videoIframe.src = "https://www.youtube.com/embed/ygxNb3y72es?si=dToIxGrmipQPPTEo";
-                        songInfoDiv.innerHTML = `<p>선택한 연도: ${selectedYear}</p><p>선택한 장르: ${selectedGenre}</p><p>케이팝 노래 정보</p>`;
-                        break;
-                    // 다른 장르에 대한 처리도 추가 가능
-                }
-                break;
-            // 다른 연도에 대한 처리도 추가 가능
+        var videoUrl = getVideoUrl(selectedYear, selectedGenre);
+
+        if (videoUrl) {
+            videoIframe.src = videoUrl;
+            songInfoDiv.innerHTML = `<p>선택한 연도: ${selectedYear}</p><p>선택한 장르: ${selectedGenre}</p><p>노래 정보</p>`;
+        } else {
+            alert("선택한 연도와 장르에 맞는 영상이 없습니다.");
         }
     } else {
         alert("연도와 장르를 선택하세요.");
     }
 }
 
-// 다른 함수들은 이전과 동일하게 유지됩니다.
-function resetButtonStyles(buttons) {
-    buttons.forEach(function (button) {
-        button.classList.remove("selected");
-    });
+// 연도와 장르에 따른 영상 URL을 반환하는 함수
+function getVideoUrl(year, genre) {
+    // 여기에 선택한 연도와 장르에 맞는 여러 영상 정보를 객체로 반환
+    // 예시:
+    var videoUrls = {
+        '2017-케이팝': 'https://www.youtube.com/embed/V_Eax11EJ3M?si=P5BbCrjIR4BnYxXT&amp;controls=0',
+        '2018-케이팝': 'https://www.youtube.com/embed/NBU5QHUTejk?si=OYQ_or4oJYS7pQt7&amp;controls=0',
+        '2019-케이팝': 'https://www.youtube.com/embed/NYgZ_lbIpDo?si=hPLYJLQtr7iwKflI&amp;controls=0',
+        '2020-케이팝': 'https://www.youtube.com/embed/cldRnF-EE1k?si=3fCdH2IzqVXx8WhP&amp;controls=0',
+        '2021-케이팝': 'https://www.youtube.com/embed/_wYw0HDxaQ4?si=2EGdzNNqWEez5UBj&amp;controls=0',
+        '2022-케이팝': 'https://www.youtube.com/embed/5WcVp77H0J4?si=E71JWIdmLnmDCoBZ&amp;controls=0',
+        '2023-케이팝': '',
+    };
+
+    return videoUrls[year + '-' + genre] || null;
 }
 
+// 나머지 함수들은 이전과 동일하게 유지됩니다.
 function getSelectedButtonValue(buttons) {
     for (var i = 0; i < buttons.length; i++) {
         if (buttons[i].classList.contains("selected")) {
