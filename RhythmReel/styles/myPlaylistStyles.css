@@ -17,6 +17,13 @@
   cursor: pointer;
 }
 
+.filter-button.selected,
+.year-button:hover,
+.filter-button:hover {
+    background-color: #87CEEB;
+    color: #fff;
+}
+
 .year-button:hover , .filter-button:hover{
   background-color: #87CEEB;
   color: #fff;

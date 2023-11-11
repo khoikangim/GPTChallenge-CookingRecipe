@@ -1,5 +1,8 @@
 def greet(name):
-    print(f"Hello, {name}!")
+    print(f"Hello1111111111, {name}!")
+
+def get_name_length(name):
+    return len(name)
 
 if __name__ == "__main__":
     user_name = input("Enter your name: ")
@@ -13,4 +16,5 @@ if __name__ == "__main__":
 
     # 나이를 입력받아 출력하는 부분 추가
     user_age = input("Enter your age: ")
-    print(f"You are {user_age} years old.")
+    print("You are {user_age} years old.")
+
