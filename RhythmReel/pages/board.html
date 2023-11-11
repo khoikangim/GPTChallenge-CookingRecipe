@@ -6,21 +6,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상황에 맞는 플레이리스트</title>
-    <link rel="stylesheet" href="../styles/myPlaylistStyles.css"> <!-- 경로 수정 -->
+    <link rel="stylesheet" href="../styles/board.css"> <!-- 경로 수정 -->
 </head>
+
 <body>
+    <div id="playlist-board">
+        <h1>플레이리스트 노래 게시판</h1>
+        <div id="post-form">
+            <label for="genre">장르:</label>
+            <select id="genre" name="genre">
+                <option value="케이팝">케이팝</option>
+                <option value="발라드">발라드</option>
+                <option value="OST">OST</option>
+                <option value="POP">POP</option>
+                <option value="힙합">힙합</option>
+                <option value="댄스">댄스</option>
+            </select>
+            <br>
+            <label for="song-title">노래 제목:</label>
+            <input type="text" id="song-title" name="song-title" placeholder="노래 제목을 입력하세요">
+            <br>
+            <label for="artist">가수:</label>
+            <input type="text" id="artist" name="artist" placeholder="가수를 입력하세요">
+            <br>
+            <label for="post-content">게시글 내용:</label>
+            <textarea id="post-content" name="post-content" placeholder="노래에 대한 내용을 입력하세요"></textarea>
+            <br>
+            <button onclick="addPost()">게시</button>
+        </div>
+        <div id="post-list"></div>
+    </div>
 
-<h2>여기는 게시판판</h2>
-
-<!-- 필터 버튼을 나타낼 영역 -->
-<div id="filters"></div>
-
-<!-- 장르 버튼을 나타낼 영역 -->
-<div id="genres"></div>
-
-<!-- 상황에 맞는 플레이리스트에 대한 내용 추가 -->
-<div id="playlist"></div>
-
-<script src="../scripts/board.js"></script> <!-- 경로 수정 -->
+    <script src="scripts/playlistBoardScript.js"></script>
 </body>
 </html>
