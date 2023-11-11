@@ -15,26 +15,27 @@ function setActiveMenu(menuClass) {
 
 // 나에게 맞는 플레이리스트 페이지 표시 함수
 function showMyPlaylist() {
-removeActiveClass();
+  removeActiveClass();
+  
+  const navTitle = document.querySelector('.nav-title.showMyPlaylist');
+  navTitle.classList.add('active');
+  
+  const mainContent = document.getElementById('mainContent');
+  mainContent.innerHTML = '';
+  
+  const playlistTitle = document.createElement('h2');
+  playlistTitle.id = 'playlistTitle';
+  playlistTitle.textContent = '상황에 맞게 추천';
+  mainContent.appendChild(playlistTitle);
+  
+  const playlist = document.createElement('div');
+  playlist.classList.add('playlist');
+  playlist.id = 'playlist';
+  mainContent.appendChild(playlist);
+  
+  // 여기에 상황별 플레이리스트를 렌더링하는 로직을 추가할 수 있음
+  }
 
-const navTitle = document.querySelector('.nav-title.myPlaylist');
-navTitle.classList.add('active');
-
-const mainContent = document.getElementById('mainContent');
-mainContent.innerHTML = '';
-
-const playlistTitle = document.createElement('h2');
-playlistTitle.id = 'playlistTitle';
-playlistTitle.textContent = '플레이리스트 추천';
-mainContent.appendChild(playlistTitle);
-
-const playlist = document.createElement('div');
-playlist.classList.add('playlist');
-playlist.id = 'playlist';
-mainContent.appendChild(playlist);
-
-// 여기에 나에게 맞는 플레이리스트를 렌더링하는 로직을 추가할 수 있음
-}
 
 // 상황별 플레이리스트 페이지 표시 함수
 function showScenarioPlaylist() {
@@ -55,8 +56,6 @@ const playlist = document.createElement('div');
 playlist.classList.add('playlist');
 playlist.id = 'playlist';
 mainContent.appendChild(playlist);
-
-// 여기에 상황별 플레이리스트를 렌더링하는 로직을 추가할 수 있음
 }
 
 // 게시판 페이지 표시 함수
