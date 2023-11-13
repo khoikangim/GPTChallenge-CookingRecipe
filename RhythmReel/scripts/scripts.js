@@ -33,15 +33,14 @@ function showMyPlaylist() {
   playlist.id = 'playlist';
   mainContent.appendChild(playlist);
   
-  // 여기에 상황별 플레이리스트를 렌더링하는 로직을 추가할 수 있음
   }
 
 
 // 상황별 플레이리스트 페이지 표시 함수
-function showScenarioPlaylist() {
+function showTimeFood() {
 removeActiveClass();
 
-const navTitle = document.querySelector('.nav-title.scenarioPlaylist');
+const navTitle = document.querySelector('.nav-title.timeFood');
 navTitle.classList.add('active');
 
 const mainContent = document.getElementById('mainContent');
@@ -84,3 +83,35 @@ document.addEventListener('DOMContentLoaded', () => {
   loadPage('myPlaylist');
 });
 
+
+var state = {};
+
+function setActiveMenu(menu) {
+    state.activeMenu = menu;  // 현재 활성화된 메뉴를 상태에 저장
+}
+
+function showMyPlaylist() {
+    setActiveMenu('myPlaylist');
+}
+
+function showTimeFood() {
+    setActiveMenu('timeFood');
+}
+
+function showBoard() {
+    setActiveMenu('board');
+}
+
+// active 클래스 제거 함수
+function removeActiveClass() {
+  const activeMenu = document.querySelector('.nav-title.active');
+  if (activeMenu) {
+      activeMenu.classList.remove('active');
+  }
+}
+
+// 현재 페이지 메뉴에 active 클래스 추가
+function setActiveMenu(menuClass) {
+  removeActiveClass();
+  document.querySelector(`.nav-title.${menuClass}`).classList.add('active');
+}

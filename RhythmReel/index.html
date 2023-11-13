@@ -4,20 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/CR.png" type="image/x-icon">
     <title>플리 추천</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/myPlaylistStyles.css">
 </head>
-<body>
 
+<body onload="showMyPlaylist()"> 
 <header>
     <h2 class="header-title">플레이리스트 추천</h2>
 </header>    
 <nav>
     <ul>
-        <li class="nav-title myPlaylist"><a href="#" onclick="showMyPlaylist()">나에게 맞는 플레이리스트</a></li>
-        <li class="nav-title scenarioPlaylist"><a href="#" onclick="showScenarioPlaylist()">상황별 플레이리스트</a></li>
-        <li class="nav-title board"><a href="#" onclick="showBoard()">게시판</a></li>
+        <li class="nav-title myPlaylist"><a href="#" onclick="showMyPlaylist()">국가별 음식</a></li>
+        <li class="nav-title scenarioPlaylist"><a href="#" onclick="showTimeFood()">한끼식사 추천 </a></li>
+        <li class="nav-title board"><a href="#" onclick="showBoard()">레시피 추천 게시판</a></li>
+        <li class="nav-title board"><a href="#" onclick="showFoodDiary()">나만의 음식 다이어리</a></li>
     </ul>
 </nav>
 
@@ -26,8 +28,9 @@
 </main>
 
 <script src="scripts/myPlaylist.js"></script>
-<script src="scripts/scenarioPlaylist.js"></script>
+<script src="scripts/timeFood.js"></script>
 <script src="scripts/board.js"></script>
 <script src="scripts/script.js"></script>
+<script src="scripts/foodDiary.js"></script>
 </body>
 </html>

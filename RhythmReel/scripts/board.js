@@ -1,35 +1,68 @@
 // board.js
 
 function showBoard() {
-  fetch('pages/board.html') // 수정된 경로
+  fetch('pages/board.html')
       .then(response => response.text())
       .then(html => {
           const mainContent = document.getElementById('mainContent');
           mainContent.innerHTML = html;
-          // 여기에 상황별 플레이리스트를 렌더링하는 로직을 추가할 수 있음
+
+          // 로컬 스토리지에서 글을 가져와 출력
+          var storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+
+          if (storedPosts.length > 0) {
+              var postList = document.getElementById("post-list");
+
+              storedPosts.forEach(postContent => {
+                  var newPost = document.createElement("div");
+                  newPost.className = "post";
+                  newPost.innerHTML = postContent;
+                  newPost.innerHTML += '<button onclick="deletePost(this)">삭제</button>';
+                  newPost.innerHTML += '<div class="comments"><textarea class="comment-content" placeholder="댓글을 입력하세요"></textarea>';
+                  newPost.innerHTML += '<button onclick="addComment(this)">댓글 작성</button></div>';
+                  postList.appendChild(newPost);
+              });
+          }
       });
 
   setActiveMenu('board');
 }
 
 function addPost() {
-  var postContent = document.getElementById('post-content').value;
-  
-  if (postContent.trim() !== '') {
-      var postList = document.getElementById('post-list');
+  var genre = document.getElementById("country").value;
+  var foodName = document.getElementById("food-name").value;
+  var author = document.getElementById("author").value;
+  var postContent = document.getElementById("recipe-content").value;
 
-      var postDiv = document.createElement('div');
-      postDiv.className = 'post';
-      postDiv.innerHTML = '<p>' + postContent + '</p><button onclick="deletePost(this)">삭제</button>';
-      postDiv.innerHTML += '<div class="comments"><textarea class="comment-content" placeholder="댓글을 입력하세요"></textarea>';
-      postDiv.innerHTML += '<button onclick="addComment(this)">댓글 작성</button></div>';
+  if (genre && foodName && author && postContent) {
+      var postList = document.getElementById("post-list");
 
-      postList.appendChild(postDiv);
+      // 새로운 게시글을 생성하여 postList에 추가
+      var newPost = document.createElement("div");
+      newPost.className = "post";
 
-      // 게시글 추가 후 입력창 초기화
-      document.getElementById('post-content').value = '';
+      // 엔터를 <br>로 변환하여 출력
+      var formattedContent = postContent.replace(/\n/g, '<br>');
+      
+      newPost.innerHTML = `<h3 class="return-foodName">${genre} - ${foodName}</h3><p>${author}</p><p>${formattedContent}</p>`;
+    newPost.innerHTML += `<button class="delete-post-button" onclick="deletePost(this)">레시피 삭제</button>`;
+    newPost.innerHTML += '<div class="comments"><textarea class="comment-content" placeholder="댓글을 입력하세요"></textarea>';
+    newPost.innerHTML += '<button class="add-comment-button" onclick="addComment(this)">입력</button></div>';
+
+      postList.appendChild(newPost);
+
+      // 로컬 스토리지에 게시글 저장
+      var storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+      storedPosts.push(newPost.innerHTML);
+      localStorage.setItem('posts', JSON.stringify(storedPosts));
+
+      // 폼을 초기화
+      document.getElementById("country").value = "";
+      document.getElementById("food-name").value = "";
+      document.getElementById("author").value = "";
+      document.getElementById("recipe-content").value = "";
   } else {
-      alert('노래 정보를 입력하세요.');
+      alert("모든 필드를 작성하세요.");
   }
 }
 
@@ -44,7 +77,8 @@ function addComment(button) {
   if (commentContent.trim() !== '') {
       var commentsDiv = button.parentElement.parentElement.querySelector('.comments');
       var commentDiv = document.createElement('div');
-      commentDiv.innerHTML = '<p>' + commentContent + '</p><button onclick="deleteComment(this)">삭제</button>';
+      commentDiv.innerHTML = 
+        '<p>' + commentContent + '</p><button onclick="deleteComment(this)">삭제</button>';
       commentsDiv.appendChild(commentDiv);
 
       // 댓글 추가 후 입력창 초기화
@@ -57,30 +91,4 @@ function addComment(button) {
 function deleteComment(button) {
   var commentDiv = button.parentElement;
   commentDiv.remove();
-}
-
-// 이전에 사용하던 함수들과 함께
-function addPost() {
-  var genre = document.getElementById("genre").value;
-  var songTitle = document.getElementById("song-title").value;
-  var artist = document.getElementById("artist").value;
-  var postContent = document.getElementById("post-content").value;
-
-  if (genre && songTitle && artist && postContent) {
-      var postList = document.getElementById("post-list");
-
-      // 새로운 게시글을 생성하여 postList에 추가
-      var newPost = document.createElement("div");
-      newPost.className = "post";
-      newPost.innerHTML = `<h3>${genre} - ${songTitle}</h3><p>${artist}</p><p>${postContent}</p>`;
-      postList.appendChild(newPost);
-
-      // 폼을 초기화
-      document.getElementById("genre").value = "";
-      document.getElementById("song-title").value = "";
-      document.getElementById("artist").value = "";
-      document.getElementById("post-content").value = "";
-  } else {
-      alert("모든 필드를 작성하세요.");
-  }
 }
