@@ -1,12 +1,14 @@
-/* myPlaylistStyles.css */
-.filter-year, .filter-genre{
+/* timeFood.css */
+.filter-year, .filter-genre {
   text-align: center;
 }
-.filter-title, .filter-genre{
+
+.filter-title, .filter-genre {
   font-size: 20px;
   font-weight: bold;
   color: #44a6cd;
 }
+
 .filter-button {
   background-color: #fff;
   color: #333;
@@ -20,16 +22,16 @@
 .filter-button.selected,
 .year-button:hover,
 .filter-button:hover {
-    background-color: #87CEEB;
-    color: #fff;
-}
-
-.year-button:hover , .filter-button:hover{
   background-color: #87CEEB;
   color: #fff;
 }
 
-.filter-result-button{
+.year-button:hover, .filter-button:hover {
+  background-color: #87CEEB;
+  color: #fff;
+}
+
+.filter-result-button {
   background-color: rgb(94, 94, 94);
   color: white;
   border: none;
@@ -38,10 +40,11 @@
   cursor: pointer;
 }
 
-.filter-category, .filter-subcategory{
+.filter-category, .filter-subcategory {
   text-align: center;
   margin: 0 auto;
 }
+
 .food-result {
   display: flex;
   flex-direction: column;
@@ -53,20 +56,29 @@
 #videoIframe {
   box-sizing: border-box;
 }
-.subcategory-recipe{ /*음식 명-레시피*/
+
+.subcategory-recipe { /*음식 명-레시피*/
   text-align: center;
   margin-top: 35px;
-  font-size: 22px; font-weight: bold;
+  font-size: 22px;
+  font-weight: bold;
   color: rgb(45, 98, 163);
 }
-.food-material{ 
+
+.food-material {
   text-align: center;
 }
-.food-materials{ 
+
+.food-materials {
   text-align: center;
   border: 1px solid #44a6cd;
   border-radius: 10px;
-  padding: 10px; 
+  padding: 10px;
   display: inline-block;
   margin: 5px;
+}
+
+.filter-button.selected {
+  background-color: #87CEEB;
+  color: #fff;
 }

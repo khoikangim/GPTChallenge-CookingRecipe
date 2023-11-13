@@ -5,36 +5,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상황에 맞는 플레이리스트</title>
-    <link rel="stylesheet" href="../styles/board.css"> <!-- 경로 수정 -->
+    <link rel="stylesheet" href="../styles/board.css">
 </head>
 
 <body>
     <div id="playlist-board">
-        <h1>플레이리스트 노래 게시판</h1>
+        <h3>나만의 레시피 추천 게시판</h3>
         <div id="post-form">
-            <label for="genre">장르:</label>
-            <select id="genre" name="genre">
-                <option value="케이팝">케이팝</option>
-                <option value="발라드">발라드</option>
-                <option value="OST">OST</option>
-                <option value="POP">POP</option>
-                <option value="힙합">힙합</option>
-                <option value="댄스">댄스</option>
+            <label for="country">음식 카테고리:</label>
+            <select id="country" name="country">
+                <option value="한식">한식</option>
+                <option value="일식">일식</option>
+                <option value="중식">중식</option>
+                <option value="양식">양식</option>
+                <option value="힙합">그외</option>
             </select>
             <br>
-            <label for="song-title">노래 제목:</label>
-            <input type="text" id="song-title" name="song-title" placeholder="노래 제목을 입력하세요">
+            <label for="food-name">음식 이름:</label>
+            <input type="text" id="food-name" name="food-name" placeholder="음식 이름을 입력하세요">
             <br>
-            <label for="artist">가수:</label>
-            <input type="text" id="artist" name="artist" placeholder="가수를 입력하세요">
+            <label for="author">작성자:</label>
+            <input type="text" id="author" name="author" placeholder="작성자를 입력하세요">
             <br>
-            <label for="post-content">게시글 내용:</label>
-            <textarea id="post-content" name="post-content" placeholder="노래에 대한 내용을 입력하세요"></textarea>
+            <label for="recipe-content">레시피 내용:</label>
+            <textarea id="recipe-content" name="recipe-content" placeholder="레시피에 대한 내용을 입력하세요"></textarea>
             <br>
-            <button onclick="addPost()">게시</button>
+            <button class='add-button' onclick="addPost()">게시</button>
         </div>
-        <div id="post-list"></div>
+        <div class="post-list" id="post-list"></div>
     </div>
 
     <script src="scripts/playlistBoardScript.js"></script>
