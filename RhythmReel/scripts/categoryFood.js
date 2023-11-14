@@ -1,7 +1,5 @@
-// myPlaylist.js
-
-function showMyPlaylist() {
-    fetch('pages/myPlaylist.html')
+function showCategoryFood() {
+    fetch('pages/categoryFood.html')
         .then(response => response.text())
         .then(html => {
             const mainContent = document.getElementById('mainContent');
