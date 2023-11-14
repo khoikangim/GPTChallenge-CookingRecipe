@@ -1,21 +1,68 @@
-<!-- pages/scenarioPlaylist.html -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/foodDiary.css"> <!-- 경로 수정 -->
+    <link rel="stylesheet" href="styles/foodDiary.css">
 </head>
-<body>
-  <div id="food-diary">
-      <h1>나의 음식 다이어리</h1>
-      <div id="calendar"></div>
+
+<body class="diary-background">
+
+<div class="calendar">
+    <div class="month"><a href="#" class="nav"><i class="fas fa-angle-left"></i></a>
+        <div>11월 <span class="year">2023</span></div>
+        <a href="#" class="nav">
+            <i class="fas fa-angle-right"></i>
+        </a>
+    </div>
+
+    <div class="days">
+        <span>Mon</span>  <span>Tue</span>  <span>Wed</span>  <span>Thu</span>  
+        <span>Fri</span>  <span>Sat</span>  <span>Sun</span>
+    </div>
+
+    <div class="dates">
+        <button onclick="showDiaryInput(1)">  <time>1</time>  </button>
+        <button onclick="showDiaryInput(2)">  <time>2</time>  </button>
+        <button onclick="showDiaryInput(3)">  <time>3</time>  </button>
+        <button onclick="showDiaryInput(4)">  <time>4</time>  </button>
+        <button onclick="showDiaryInput(5)">  <time>5</time>  </button>
+
+        <button onclick="showDiaryInput(6)">  <time>6</time>  </button>
+        <button onclick="showDiaryInput(7)">  <time>7</time>  </button>
+        <button onclick="showDiaryInput(8)">  <time>8</time>  </button>
+        <button onclick="showDiaryInput(9)">  <time>9</time>  </button>
+        <button onclick="showDiaryInput(10)">  <time>10</time>  </button>
+
+        <button onclick="showDiaryInput(11)">  <time>11</time>  </button>
+        <button onclick="showDiaryInput(12)">  <time>12</time>  </button>
+        <button onclick="showDiaryInput(13)">  <time>13</time>  </button>
+        <button onclick="showDiaryInput(14)">  <time>14</time>  </button>
+        <button onclick="showDiaryInput(15)"  class="today">  <time>15</time>  </button>
+
+        <button onclick="showDiaryInput(16)">  <time>16</time>  </button>
+        <button onclick="showDiaryInput(17)">  <time>17</time>  </button>
+        <button onclick="showDiaryInput(18)">  <time>18</time>  </button>
+        <button onclick="showDiaryInput(19)">  <time>19</time>  </button>
+        <button onclick="showDiaryInput(20)">  <time>20</time>  </button>
+
+        <button onclick="showDiaryInput(21)">  <time>21</time>  </button>
+        <button onclick="showDiaryInput(22)">  <time>22</time>  </button>
+        <button onclick="showDiaryInput(23)">  <time>24</time>  </button>
+        <button onclick="showDiaryInput(24)">  <time>24</time>  </button>
+        <button onclick="showDiaryInput(25)">  <time>25</time>  </button>
+
+        <button onclick="showDiaryInput(26)">  <time>26</time>  </button>
+        <button onclick="showDiaryInput(27)">  <time>27</time>  </button>
+        <button onclick="showDiaryInput(28)">  <time>28</time>  </button>
+        <button onclick="showDiaryInput(29)">  <time>29</time>  </button>
+        <button onclick="showDiaryInput(30)">  <time>30</time>  </button>
+        <button onclick="showDiaryInput(31)">  <time>31</time>  </button>
+    </div>
+
+    <div class="diary-info"></div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
   <script src="scripts/foodDiary.js"></script>
 </body>
 </html>

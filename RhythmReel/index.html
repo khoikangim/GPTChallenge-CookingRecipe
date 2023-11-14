@@ -7,19 +7,19 @@
     <link rel="icon" href="images/CR.png" type="image/x-icon">
     <title>플리 추천</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/myPlaylistStyles.css">
+    <link rel="stylesheet" href="styles/categoryFood.css">
 </head>
 
 <body onload="showMyPlaylist()"> 
 <header>
-    <h2 class="header-title">플레이리스트 추천</h2>
+    <h2 class="header-title">Cooking Recipe</h2>
 </header>    
 <nav>
     <ul>
-        <li class="nav-title myPlaylist"><a href="#" onclick="showMyPlaylist()">국가별 음식</a></li>
+        <li class="nav-title myPlaylist"><a href="#" onclick="showCategoryFood()">카테고리별 음식</a></li>
         <li class="nav-title scenarioPlaylist"><a href="#" onclick="showTimeFood()">한끼식사 추천 </a></li>
         <li class="nav-title board"><a href="#" onclick="showBoard()">레시피 추천 게시판</a></li>
-        <li class="nav-title board"><a href="#" onclick="showFoodDiary()">나만의 음식 다이어리</a></li>
+        <li class="nav-title board"><a href="#" onclick="showFoodDiary()">식단 기록</a></li>
     </ul>
 </nav>
 
@@ -27,7 +27,7 @@
     <!-- 여기에 각 메뉴에 따른 동적인 컨텐츠가 나타날 예정입니다. -->
 </main>
 
-<script src="scripts/myPlaylist.js"></script>
+<script src="scripts/categoryFood.js"></script>
 <script src="scripts/timeFood.js"></script>
 <script src="scripts/board.js"></script>
 <script src="scripts/script.js"></script>
