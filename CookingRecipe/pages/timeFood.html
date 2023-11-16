@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/timeFood.css">
+</head>
+<body>
+
+    <div id="timeFilter-category" class="filter-category">
+        <p class="filter-title">시간대 별 음식</p>
+        <button class="filter-button" onclick="showTimeSubcategories('아침')">아침</button>
+        <button class="filter-button" onclick="showTimeSubcategories('점심')">점심</button>
+        <button class="filter-button" onclick="showTimeSubcategories('저녁')">저녁</button>
+        <button class="filter-button" onclick="showTimeSubcategories('간식')">간식</button>
+    </div> <br/>
+    <!-- 서브 카테고리 버튼을 나타낼 영역 -->
+    <div id="timeFilter-subcategory" class="filter-subcategory"></div>
+
+    <div class="food-result">
+        <div id="songInfo"></div>
+        <div id="ingredientsTimeInfo"></div>
+        <iframe id="videoIframe" width="560" height="315" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; 
+            autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <script src="../scripts/timeFood.js"></script> 
+</body>
+</html>

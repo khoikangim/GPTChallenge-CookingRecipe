@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
+.calendar {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  background: #f6f5d9c3;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 20px 30px -20px rgba(0, 0, 0, 0.3);
+}
+
+.month {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.year {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #0e55be;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  transition-duration: 0.2s;
+  position: relative;
+}
+
+.days {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(7, 1fr);
+  color: rgb(50, 53, 101);
+  font-weight: 600;
+  margin-bottom: 15px;
+  grid-column: 1; /* 추가된 부분 */
+}
+
+.days span {
+  width: 50px;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.dates button {
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+  justify-self: center;
+  align-self: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin: 2px;
+  transition-duration: 0.2s;
+}
+
+.dates button.today {
+  box-shadow: inset 0px 0px 0px 3px #4680d7;
+}
+
+.dates button:first-child {
+  grid-column: 3;
+}
+
+.dates button:hover {
+  background: rgb(215, 238, 255);
+}
+
+.dates button:focus {
+  background: #87CEEB;
+  color: #fff;
+  font-weight: 600;
+}
+
+.diary-info {
+  grid-column: 2;
+  grid-row: 2 / span 6;
+  padding: 20px;
+  background-color: #fff; 
+  border-radius: 15px;
+  border-color: #87CEEB;
+  margin-left: 20px;
+}
+
+.diary-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
