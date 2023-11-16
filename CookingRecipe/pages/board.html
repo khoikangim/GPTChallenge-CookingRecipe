@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/board.css">
+</head>
+
+<body>
+    <div id="playlist-board">
+        <h3>나만의 레시피 추천 게시판</h3>
+        <div id="post-form">
+            
+            <label for="country">음식 카테고리:</label>
+            <select id="country" name="country">
+                <option value="한식">한식</option>
+                <option value="일식">일식</option>
+                <option value="중식">중식</option>
+                <option value="양식">양식</option>
+                <option value="그외">그외</option>
+            </select>
+            <br>
+            <label for="food-name">음식 이름:</label>
+            <input type="text" id="food-name" name="food-name" placeholder="음식 이름을 입력하세요">
+            <br>
+            <label for="author">작성자:</label>
+            <input type="text" id="author" name="author" placeholder="작성자를 입력하세요">
+            <br>
+            <label for="recipe-content">레시피 내용:</label>
+            <textarea id="recipe-content" name="recipe-content" placeholder="레시피에 대한 내용을 입력하세요"></textarea>
+            <br>
+            <button class='add-button' onclick="addPost()">게시</button>
+        </div>
+        
+        
+        <div class="post-list" id="post-list"></div>
+
+        <div id="comment-section">
+            <h4>댓글</h4>
+            <textarea id="comment-content" placeholder="댓글을 입력하세요"></textarea>
+            <button class="comment-button" onclick="addComment()">댓글 작성</button>
+            <div id="comment-list"></div>
+        </div>
+
+    <script src="scripts/playlistBoardScript.js"></script>
+</body>
+</html>
+
+<button class='alldelete-button' onclick="clearCurrentPosts()">게시글 모두 삭제</button>
